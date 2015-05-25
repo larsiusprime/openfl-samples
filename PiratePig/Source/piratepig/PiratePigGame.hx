@@ -7,6 +7,13 @@ import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.MouseEvent;
+import openfl.events.KeyboardEvent;
+import openfl.events.GameInputEvent;
+#if (flash11_8 || (sys && !lime_legacy))
+	import openfl.ui.GameInputDevice;
+	import openfl.ui.GameInput;
+#end
+import openfl.events.FocusEvent;
 import openfl.filters.BlurFilter;
 import openfl.filters.DropShadowFilter;
 import openfl.geom.Point;
@@ -44,6 +51,18 @@ class PiratePigGame extends Sprite {
 	private var tiles:Array <Array <Tile>>;
 	private var usedTiles:Array <Tile>;
 	
+	private var Selecter:Bitmap;
+	private var selectX:Int;
+	private var selectY:Int;
+	
+	private var useMouse:Bool = true;
+	private var useKeyboard:Bool = false;
+	private var useGamepad:Bool = true;
+	
+	#if (flash11_8 || (sys && !lime_legacy))
+		private var gameinput:GameInput;
+		private var gamepad:GameInputDevice;
+	#end
 	
 	public function new () {
 		
@@ -54,6 +73,12 @@ class PiratePigGame extends Sprite {
 		
 		newGame ();
 		
+		#if (flash11_8 || (sys && !lime_legacy))
+		
+		gameinput = new GameInput();
+		gameinput.addEventListener (GameInputEvent.DEVICE_ADDED, gameinput_onDeviceAdded);
+		
+		#end
 	}
 	
 	
@@ -110,7 +135,6 @@ class PiratePigGame extends Sprite {
 		
 	}
 	
-	
 	private function construct ():Void {
 		
 		Logo.smoothing = true;
@@ -142,8 +166,18 @@ class PiratePigGame extends Sprite {
 		
 		TileContainer.x = 14;
 		TileContainer.y = Background.y + 14;
-		TileContainer.addEventListener (MouseEvent.MOUSE_DOWN, TileContainer_onMouseDown);
-		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		if (useMouse)
+		{
+			TileContainer.addEventListener (MouseEvent.MOUSE_DOWN, TileContainer_onMouseDown);
+			Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		}
+		if (useKeyboard)
+		{
+			Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_onKeyDown);
+			Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, stage_onKeyUp);
+			Lib.current.stage.addEventListener(FocusEvent.FOCUS_OUT, stage_onFocusLost);
+		}
+		
 		addChild (TileContainer);
 		
 		IntroSound = Assets.getSound ("soundTheme");
@@ -151,6 +185,13 @@ class PiratePigGame extends Sprite {
 		Sound4 = Assets.getSound ("sound4");
 		Sound5 = Assets.getSound ("sound5");
 		
+		
+		if (useKeyboard || useGamepad)
+		{
+			Selecter.x = TileContainer.x;
+			Selecter.y = TileContainer.y;
+			addChild(Selecter);
+		}
 	}
 	
 	
@@ -341,7 +382,9 @@ class PiratePigGame extends Sprite {
 		Logo = new Bitmap (Assets.getBitmapData ("images/logo.png"));
 		Score = new TextField ();
 		TileContainer = new Sprite ();
-		
+		Selecter = new Bitmap(Assets.getBitmapData("images/select.png"));
+		selectX = 0;
+		selectY = 0;
 	}
 	
 	
@@ -469,13 +512,85 @@ class PiratePigGame extends Sprite {
 		
 	}
 	
+	private function Selecter_hilight(b:Bool):Void {
+		if(b){trace("HILIGHT");}
+		Selecter.bitmapData = Assets.getBitmapData(b ? "images/select_hilight.png" : "images/select.png");
+	}
 	
+	private function Selecter_move(X:Int, Y:Int):Void {
+		
+		var oldX = selectX;
+		var oldY = selectY;
+		
+		selectX += X;
+		selectY += Y;
+		
+		if (selectY < 0) selectY = 0;
+		if (selectX < 0) selectX = 0;
+		
+		if (selectY > tiles.length - 1) selectY = tiles.length - 1;
+		if (selectX > tiles[0].length - 1) selectX = tiles[0].length -1;
+		
+		if (selectIsDown && (oldX != selectX || oldY != selectY )) {
+			
+			selectedTile = tiles[oldY][oldX];
+			swapTile (selectedTile, selectY, selectX);
+			
+		}
+		
+		Selecter_update();
+	}
 	
+	private function Selecter_update():Void
+	{
+		var pos = getPosition(selectY, selectX);
+		Selecter.x = TileContainer.x + pos.x;
+		Selecter.y = TileContainer.y + pos.y;
+	}
+	
+	private var selectIsDown:Bool = false;
 	
 	// Event Handlers
 	
+	#if (flash11_8 || (sys && !lime_legacy))
+		private function gameinput_onDeviceAdded(event:GameInputEvent):Void {
+			
+			for (i in 0...GameInput.numDevices)
+			{
+				gamepad = GameInput.getDeviceAt(i);
+				if (gamepad != null)
+				{
+					gamepad.enabled = true;
+					return;
+				}
+			}
+		}
+	#end
 	
+	private function stage_onFocusLost(event:FocusEvent):Void {
+		Selecter_hilight(false);
+		selectIsDown = false;
+	}
 	
+	private function stage_onKeyDown(event:KeyboardEvent):Void {
+		switch(event.keyCode)
+		{
+			case 37, 65:	Selecter_move( -1,  0);		//left
+			case 38, 87:	Selecter_move(  0, -1);		//up
+			case 39, 68:	Selecter_move(  1,  0);		//right
+			case 40, 83:	Selecter_move(  0,  1);		//down
+			case 13, 32:	Selecter_hilight(true);		//enter, space
+							selectIsDown = true;
+		}
+	}
+	
+	private function stage_onKeyUp(event:KeyboardEvent):Void {
+		switch(event.keyCode)
+		{
+			case 13, 32:	Selecter_hilight(false);
+							selectIsDown = false;
+		}
+	}
 	
 	private function stage_onMouseUp (event:MouseEvent):Void {
 		
@@ -551,8 +666,67 @@ class PiratePigGame extends Sprite {
 			
 		}
 		
+		#if (flash11_8 || (sys && !lime_legacy))
+		if (useGamepad && gamepad != null)
+		{
+			for (i in 0...gamepad.numControls)
+			{
+				var control = gamepad.getControlAt(i);
+				if (Math.abs(control.value) > 0.1)
+				{
+					var last = false;
+					
+					selectIsDown = A_BUTTON_pressed || B_BUTTON_pressed;
+					
+					switch(i)
+					{
+						case DPAD_LEFT: last = DPAD_LEFT_pressed; DPAD_LEFT_pressed = true;
+										if (!last) { Selecter_move( -1, 0);}
+						case DPAD_RIGHT: last = DPAD_RIGHT_pressed;  DPAD_RIGHT_pressed = true;
+										if (!last) { Selecter_move(  1, 0);}
+						case DPAD_UP: last = DPAD_UP_pressed;  DPAD_UP_pressed = true;
+										if (!last) { Selecter_move(  0,-1);}
+						case DPAD_DOWN: last = DPAD_DOWN_pressed;  DPAD_DOWN_pressed = true;
+										if (!last) { Selecter_move(  0, 1); }
+						case A_BUTTON: last = A_BUTTON_pressed; A_BUTTON_pressed = true;
+										if (!last) { Selecter_hilight(true); selectIsDown = true; }
+						case B_BUTTON: last = B_BUTTON_pressed; B_BUTTON_pressed = true;
+										if (!last) { Selecter_hilight(true); selectIsDown = true; }
+						default: 	//dononthing
+					}
+				}
+				
+				if (gamepad.getControlAt(DPAD_LEFT).value == 0) DPAD_LEFT_pressed = false;
+				if (gamepad.getControlAt(DPAD_RIGHT).value == 0) DPAD_RIGHT_pressed = false;
+				if (gamepad.getControlAt(DPAD_UP).value == 0) DPAD_UP_pressed = false;
+				if (gamepad.getControlAt(DPAD_DOWN).value == 0) DPAD_DOWN_pressed = false;
+				if (gamepad.getControlAt(A_BUTTON).value == 0) A_BUTTON_pressed= false;
+				if (gamepad.getControlAt(B_BUTTON).value == 0) B_BUTTON_pressed= false;
+				
+				var selectIsNowDown = A_BUTTON_pressed || B_BUTTON_pressed;
+				
+				if (selectIsDown && !selectIsNowDown)
+				{
+					Selecter_hilight(false);
+				}
+			}
+		}
+		#end
 	}
 	
+	private var DPAD_DOWN_pressed:Bool = false;
+	private var DPAD_LEFT_pressed:Bool = false;
+	private var DPAD_UP_pressed:Bool = false;
+	private var DPAD_RIGHT_pressed:Bool = false;
+	private var A_BUTTON_pressed:Bool = false;
+	private var B_BUTTON_pressed:Bool = false;
+	
+	private static inline var DPAD_UP:Int = 17;
+	private static inline var DPAD_DOWN:Int = 18;
+	private static inline var DPAD_LEFT:Int = 19;
+	private static inline var DPAD_RIGHT:Int = 20;
+	private static inline var A_BUTTON:Int = 6;
+	private static inline var B_BUTTON:Int = 7;
 	
 	private function TileContainer_onMouseDown (event:MouseEvent):Void {
 		
@@ -569,6 +743,4 @@ class PiratePigGame extends Sprite {
 		}
 		
 	}
-	
-	
 }

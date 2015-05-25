@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="Displaying a Bitmap" package="org.openfl.samples.displayingabitmap" version="1.0.0" company="OpenFL" />
-	<app main="Main" path="Export" file="DisplayingABitmap" />
+	<meta title="Input Text" package="org.openfl.samples.inputtext" version="1.0.0" company="OpenFL" />
+	<app main="Main" path="Export" file="InputText" />
 	
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
-	<haxelib name="hxtelemetry" />
 	
 	<assets path="Assets" rename="assets" exclude="*.svg" />
 	<icon path="Assets/openfl.svg" />

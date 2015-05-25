@@ -1,0 +1,183 @@
+Warning: Could not find template file: wiiu/template
++ Converting T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_default.psh.preprocessed
+
+  + Generated shader T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_default.psh.preprocessed.glsl
+
++ Converting T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_fill.psh.preprocessed
+
+  + Generated shader T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_fill.psh.preprocessed.glsl
+
++ Converting T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_default.vsh.preprocessed
+
+  + Generated shader T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_default.vsh.preprocessed.glsl
+
++ Converting T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_fill.vsh.preprocessed
+
+  + Generated shader T:\Development\Git\openfl-samples\BunnyMark/Export/wiiu/cpp/shaders/openfl_fill.vsh.preprocessed.glsl
+
+Report Summary:
+-> Time to initialize the parser = 00:00:02.8380752 (47%)
+-> Time to convert to GLSL = 00:00:02.8158367 (47%)
+-> Time to compile = 00:00:00.2624553 (4%)
+-> Total time = 00:00:05.9445143
+-> Hlsl inputs = 4
+-> Glsl outputs success = 4
+-> Glsl outputs failed = 0
+
+ccppc.exe -Iinclude -IT:/Development/Git/lime-console/include -c -g -D_DEBUG -O0 -DNINTENDO -DWIIU -DHXCPP_CUSTOM_PLATFORM -DHXCPP_DEBUG -DSTATIC_LINK -DHXCPP_VISIT_ALLOCS -DHXCPP_API_LEVEL=321 -DNDEV=1 -DCAFE=2 -DPLATFORM=CAFE -DEPPC --no_commons -c99 -kanji=shiftjis --g++ -sda=none --stdle --exceptions -cpu=espresso -D_LANGUAGE_C -G -MD -IT:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/include -IT:\Documents\leveluplabs\NDA\Nintendo\WiiU\Cafe_NEX/include -IT:/Development/Git/hxcpp/include -IT:/Development/Git/lime-wiiu/project/include -DWF_ENGINE -DWF_DEBUG -D_DEBUG -D_NEW_ -DWF_CAFE -DSF_OS_WIIU -DSF_OS_WIIU -DMULTI_TARGET_CAFE -include T:/Development/Git/lime-wiiu/project/include/ConsoleForcedIncludes.h ./src/lime/text/Font.cpp -o obj/wiiu-stat-debug/34392060_Font.o
+"T:/Development/Git/lime-wiiu/project/include/wfMemoryOverride.h", line 6: warning #47-D: 
+          incompatible redefinition of macro "_NEW_"
+  #define _NEW_
+          ^
+
+"T:/Development/Git/hxcpp/include/hxcpp.h", line 129: warning #161-D: 
+          unrecognized #pragma
+  #pragma warning(disable:4251)
+          ^
+
+"T:/Development/Git/hxcpp/include/hxcpp.h", line 130: warning #161-D: 
+          unrecognized #pragma
+  #pragma warning(disable:4800)
+          ^
+
+"T:/Development/Git/hxcpp/include/null.h", line 76: warning #445-D: template
+          parameter "T" is not used in declaring the parameter types of
+          function template "null::null<T>(const String &)"
+       template<typename T> explicit inline null(const String &){ } 
+                         ^
+
+"T:/Development/Git/hxcpp/include/null.h", line 119: warning #284-D: NULL
+          reference is not allowed
+          { hx::NullReference("Function Call", false); return *(Dynamic *)0; }
+                                                              ^
+
+"T:/Development/Git/hxcpp/include/Dynamic.h", line 187: warning #381-D: extra
+          ";" ignored
+     HX_DECLARE_DYNAMIC_FUNCTIONS;
+                                 ^
+
+"T:/Development/Git/hxcpp/include/cpp/CppInt32__.h", line 83: warning #1795-D: 
+          C++ symbols with the sequence `__' in their names might not be
+          debuggable
+  typedef CppInt32__ CppInt32___obj;
+                     ^
+
+"T:/Development/Git/hxcpp/include/Enum.h", line 31: warning #381-D: extra ";"
+          ignored
+        HX_DO_ENUM_RTTI_INTERNAL;
+                                ^
+
+"include\haxe/IMap.h", line 16: warning #381-D: extra ";" ignored
+  		HX_DO_INTERFACE_RTTI;
+  		                    ^
+
+"include\lime/utils/IMemoryRange.h", line 20: warning #381-D: extra ";" ignored
+  		HX_DO_INTERFACE_RTTI;
+  		                    ^
+
+"include\lime/utils/IDataInput.h", line 20: warning #381-D: extra ";" ignored
+  		HX_DO_INTERFACE_RTTI;
+  		                    ^
+
+"./src/lime/text/Font.cpp", line 111: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,decompose,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 128: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC1(Font_obj,getGlyph,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 148: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC1(Font_obj,getGlyphs,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 187: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC1(Font_obj,getGlyphMetrics,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 228: warning #177-D: variable "index" was
+          declared but never referenced
+  		int index = tmp7;		HX_STACK_VAR(index,"index");
+  		    ^
+
+"./src/lime/text/Font.cpp", line 285: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC2(Font_obj,renderGlyph,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 636: warning #177-D: variable "x1" was
+          declared but never referenced
+  								int x1 = tmp36;		HX_STACK_VAR(x1,"x1");
+  								    ^
+
+"./src/lime/text/Font.cpp", line 549: warning #177-D: variable "i1" was
+          declared but never referenced
+  				int i1 = tmp17;		HX_STACK_VAR(i1,"i1");
+  				    ^
+
+"./src/lime/text/Font.cpp", line 705: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC2(Font_obj,renderGlyphs,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 751: warning #1795-D: C++ symbols with the
+          sequence `__' in their names might not be debuggable
+  HX_DEFINE_DYNAMIC_FUNC1(Font_obj,__fromBytes,(void))
+  ^
+
+"./src/lime/text/Font.cpp", line 797: warning #1795-D: C++ symbols with the
+          sequence `__' in their names might not be debuggable
+  HX_DEFINE_DYNAMIC_FUNC1(Font_obj,__fromFile,(void))
+  ^
+
+"./src/lime/text/Font.cpp", line 811: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_ascender,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 825: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_descender,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 839: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_height,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 853: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_numGlyphs,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 867: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_underlinePosition,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 881: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_underlineThickness,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 895: warning #111-D: statement is unreachable
+  HX_DEFINE_DYNAMIC_FUNC0(Font_obj,get_unitsPerEM,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 926: warning #111-D: statement is unreachable
+  STATIC_HX_DEFINE_DYNAMIC_FUNC1(Font_obj,fromBytes,return )
+  ^
+
+"./src/lime/text/Font.cpp", line 957: warning #111-D: statement is unreachable
+  STATIC_HX_DEFINE_DYNAMIC_FUNC1(Font_obj,fromFile,return )
+  ^
+
+preprpl32.exe -o obj/wiiu-stat-debug/prelink.o @obj/wiiu-stat-debug/all_objs
+cxppc.exe -o libApplicationMain-debug.a -archive -e _start -T T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/include/cafe/eppc.Cafe.ld -relprog_cafe -lnk=-nosegments_always_executable -nostartfile -sda=none --stdle --exceptions -cpu=espresso -G -LT:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG -LC:\ghs\multi5324/lib/ppc/ -Mn -Mu -map @obj/wiiu-stat-debug/all_objs
+cxppc: Warning: relocatable program not supported with -archive
+ccppc.exe -c -g -D_DEBUG -O0 -DNINTENDO -DWIIU -DHXCPP_CUSTOM_PLATFORM -DHXCPP_DEBUG -DSTATIC_LINK -DHXCPP_VISIT_ALLOCS -DHXCPP_API_LEVEL=321 -DNDEV=1 -DCAFE=2 -DPLATFORM=CAFE -DEPPC --no_commons -c99 -kanji=shiftjis --g++ -sda=none --stdle --exceptions -cpu=espresso -D_LANGUAGE_C -G -MD -IT:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/include -IT:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX/include -IT:/Development/Git/hxcpp/include -IT:/Development/Git/lime-wiiu/project/include -DWF_ENGINE -DWF_DEBUG -D_DEBUG -D_NEW_ -DWF_CAFE -DSF_OS_WIIU -DSF_OS_WIIU -DMULTI_TARGET_CAFE -include T:/Development/Git/lime-wiiu/project/include/ConsoleForcedIncludes.h ./Main.cpp -o obj/wiiu-stat-debug/59f3fada_Main.o
+"T:/Development/Git/lime-wiiu/project/include/wfMemoryOverride.h", line 6: warning #47-D: 
+          incompatible redefinition of macro "_NEW_"
+  #define _NEW_
+          ^
+
+"./Main.cpp", line 27: warning #335-D: linkage specification is not allowed
+  extern "C" int main(int argc, char *argv[]) {
+                 ^
+
+preprpl32.exe -o obj/wiiu-stat-debug/prelink.o @obj/wiiu-stat-debug/all_objs
+cxppc.exe -o Main-debug.elf -T T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/include/cafe/eppc.Cafe.ld -relprog_cafe -lnk=-nosegments_always_executable -nostartfile -sda=none --stdle --exceptions -cpu=espresso -G -LT:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG -LC:\ghs\multi5324/lib/ppc/ -Mn -Mu -map obj/wiiu-stat-debug/prelink.o @obj/wiiu-stat-debug/all_objs T:\Development\Git\lime-wiiu\ndll/wiiu/liblime-debug.a T:\Development\Git\hxcpp\lib/wiiu/libstd.a T:\Development\Git\hxcpp\lib/wiiu/libregexp.a T:\Development\Git\hxcpp\lib/wiiu/libzlib.a S:/Git/wfengine/code/engine/3rdparty/fmod/CAFE/api/lib/libfmodex.a libApplicationMain-debug.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/snd_core.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/coredyn.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/pad.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/gfd.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/mtx.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/demo.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/snd_user.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/gx2ut.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/proc_ui.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nsyshid.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nlibcurl.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nsysnet.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nsysccr.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nsysuvd.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/gx2.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/gx2spark.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/avm.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/tcl.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/tve.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/dc.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/uvc.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/uvd.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/camera.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/dmae.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_ac.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_acp.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_save.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_act.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_ipc.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_os.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_dbg.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_nstd.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_util.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_ndm.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_crypto.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/vpad.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/vpadbase.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/padscore.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/aacdec.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/mp4dmx.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/h264.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_erreula_static.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_swkbd_static.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/sci.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/rpl.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\2_12_04/system/lib/ghs/cafe/DEBUG/nn_fp.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libDDLTypes.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemAuthenticationClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemDataStoreClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemErrorCodeConverter.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemLoginClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemMatchmakeClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemRankingClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libJugemUtilityClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libMatchmakingClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libMessagingClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libNATTraversalClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libNetZ.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libNetZExt.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libOnlineCore.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libosdk_zlib.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libParseTree.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libRendezvousClient.a T:\Documents\leveluplabs\NDA\Nintendo\WiiU\CAFE_SDK\CAFE_NEX\libraries\DEBUG/libRendezVousCommon.a
+dblink: WARNING: 10 problems were encountered while processing debug information, see "Main-debug.dle" for details.
+makerpl32 -f -padall 10 -nolib -t BUILD_TYPE=DEBUG Main-debug.elf

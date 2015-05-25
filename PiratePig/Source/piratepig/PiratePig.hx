@@ -10,14 +10,12 @@ import openfl.system.Capabilities;
 import openfl.Assets;
 import openfl.Lib;
 
-
 class PiratePig extends Sprite {
 	
 	
 	private var Background:Bitmap;
 	private var Footer:Bitmap;
 	private var Game:PiratePigGame; 
-	
 	
 	public function new () {
 		
@@ -28,7 +26,6 @@ class PiratePig extends Sprite {
 		
 		resize (stage.stageWidth, stage.stageHeight);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
-		
 	}
 	
 	
@@ -65,7 +62,6 @@ class PiratePig extends Sprite {
 		Footer.y = newHeight - Footer.height;
 		
 	}
-	
 	
 	private function stage_onResize (event:Event):Void {
 		
