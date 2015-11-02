@@ -128,6 +128,7 @@ class Main extends Sprite {
 			case 1: demo1();
 			case 2: demo2();
 			case 3: demo3();
+			case 4: demo4();
 		}
 		
 		var t:TextField = new TextField();
@@ -217,9 +218,9 @@ class Main extends Sprite {
 					  new Point(82, 129)
 					  ];
 		
-		makeText(50, 50, align,  24, null, false, txt, formats0, ranges);
-		makeText(50, 175, align, 24, null, false, txt, formats1, ranges);
-		makeText(50, 300, align, 24, null, false, txt, formats2, ranges);
+		//makeText(50, 50, align,  24, null, false, txt, formats0, ranges);
+		//makeText(50, 175, align, 24, null, false, txt, formats1, ranges);
+		//makeText(50, 300, align, 24, null, false, txt, formats2, ranges);
 		makeText(50, 425, align, 24, null, false, txt, formats3, ranges);
 	}
 	
@@ -240,7 +241,21 @@ class Main extends Sprite {
 	
 	function demo3():Void
 	{
-		demoLong("Lorem_ipsum_dolor_sit_amet,_consectetur_adipiscing_elit,_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua.");
+		demoLong("Hello World");
+	}
+	
+	function demo4():Void
+	{
+		demoLong("H e l l o W o r l d");
+	}
+	
+	function demo5():Void
+	{
+		var f = font("nokiafc22.ttf");
+		makeText(50, 50, TextFormatAlign.CENTER, 16, f, true);
+		makeText(50, 175, TextFormatAlign.LEFT, 16, f, true);
+		makeText(50, 300, TextFormatAlign.RIGHT, 16, f, true);
+		makeText(50, 425, TextFormatAlign.JUSTIFY, 16, f, true);
 	}
 	
 	@:access(openfl.text.TextField)
